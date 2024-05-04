@@ -23,4 +23,24 @@ export default function Api_call() {
   useEffect(() => {
     countriesApiCall();
   }, []);
+  console.log(countries);
+
+  return (
+    <div>
+      {countries &&
+        countries.map((countryData) => {
+          return (
+            <div className="country">
+              <img src={countryData.flags.svg} alt="" width="400" height="200" />
+              <div>
+                <h2>{countryData.name.common}</h2>
+                <p>{countryData.population}</p>
+                <p>{countryData.region}</p>
+                <p>{countryData.capital}</p>
+              </div>
+            </div>
+          );
+        })}
+    </div>
+  );
 }
