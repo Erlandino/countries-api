@@ -1,12 +1,11 @@
 import "./App.css";
 import { useEffect, useState } from "react";
+import Api_call from "./components/api_call";
 
 export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>Hello world</p>
-      </header>
-    </div>
+    <main className="App">
+      <Api_call />
+    </main>
   );
 }
