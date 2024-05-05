@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 
 export default function Api_call() {
   // usestates
-  const [countries, setCountries] = useState();
-  const [search, setSearch] = useState();
+  const [countries, setCountries] = useState([""]);
+  const [search, setSearch] = useState("");
+  // const [countriesShow, setCountriesShow] = useState("");
 
   // Async function to call for the countries api
   async function countriesApiCall() {
@@ -29,6 +30,13 @@ export default function Api_call() {
   console.log(countries);
   console.log(search);
 
+  // compares countries name to input value to decide what to display
+  const countriesShow = countries.filter((item) => {
+    return search.toUpperCase() === ""
+      ? item
+      : item.name.common.toUpperCase().includes(search.toUpperCase());
+  });
+
   return (
     <div>
       <div>
@@ -37,8 +45,8 @@ export default function Api_call() {
       </div>
       <div>
         {/* loops trough all countries to display and creates elements for them */}
-        {countries &&
-          countries.map((countryData) => {
+        {countriesShow &&
+          countriesShow.map((countryData) => {
             return (
               <div className="country">
                 <img src={countryData.flags.svg} alt="" width="400" height="200" />
