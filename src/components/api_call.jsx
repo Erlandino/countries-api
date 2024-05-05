@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 export default function Api_call() {
   const [countries, setCountries] = useState();
+  const [search, setSearch] = useState();
 
   // Async function to call for the countries api
   async function countriesApiCall() {
@@ -24,23 +25,29 @@ export default function Api_call() {
     countriesApiCall();
   }, []);
   console.log(countries);
+  console.log(search);
 
   return (
     <div>
-      {countries &&
-        countries.map((countryData) => {
-          return (
-            <div className="country">
-              <img src={countryData.flags.svg} alt="" width="400" height="200" />
-              <div>
-                <h2>{countryData.name.common}</h2>
-                <p>{countryData.population}</p>
-                <p>{countryData.region}</p>
-                <p>{countryData.capital}</p>
+      <div>
+        <input type="text" onChange={(e) => setSearch(e.target.value)} />
+      </div>
+      <div>
+        {countries &&
+          countries.map((countryData) => {
+            return (
+              <div className="country">
+                <img src={countryData.flags.svg} alt="" width="400" height="200" />
+                <div>
+                  <h2>{countryData.name.common}</h2>
+                  <p>{countryData.population}</p>
+                  <p>{countryData.region}</p>
+                  <p>{countryData.capital}</p>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+      </div>
     </div>
   );
 }
