@@ -1,6 +1,8 @@
+// imports
 import { useEffect, useState } from "react";
 
 export default function Api_call() {
+  // usestates
   const [countries, setCountries] = useState();
   const [search, setSearch] = useState();
 
@@ -30,9 +32,11 @@ export default function Api_call() {
   return (
     <div>
       <div>
+        {/* search bar for countries */}
         <input type="text" onChange={(e) => setSearch(e.target.value)} />
       </div>
       <div>
+        {/* loops trough all countries to display and creates elements for them */}
         {countries &&
           countries.map((countryData) => {
             return (

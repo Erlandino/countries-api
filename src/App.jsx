@@ -1,3 +1,4 @@
+// imports
 import "./App.css";
 import { useEffect, useState } from "react";
 import Api_call from "./components/api_call";
