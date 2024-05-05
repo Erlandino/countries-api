@@ -40,8 +40,25 @@ export default function Api_call() {
   return (
     <div>
       <div>
-        {/* search bar for countries */}
-        <input type="text" onChange={(e) => setSearch(e.target.value)} />
+        <div>
+          {/* search bar for countries */}
+          <input type="text" onChange={(e) => setSearch(e.target.value)} />
+        </div>
+        <div>
+          {/* Allows the user to select a region to filter the countries by */}
+          <select name="" id="">
+            <option selected disabled hidden>
+              Filter by region
+            </option>
+            <option value="africa">Africa</option>
+            <option value="americas">America</option>
+            <option value="asia">Asia</option>
+            <option value="europe">Europe</option>
+            <option value="oceania">Oceania</option>
+            <option value="antarctic">Antarctic</option>
+            <option value="">No region</option>
+          </select>
+        </div>
       </div>
       <div>
         {/* loops trough all countries to display and creates elements for them */}
