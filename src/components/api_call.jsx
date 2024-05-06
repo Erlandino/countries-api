@@ -5,7 +5,7 @@ export default function Api_call() {
   // usestates
   const [countries, setCountries] = useState([""]);
   const [search, setSearch] = useState("");
-  // const [countriesShow, setCountriesShow] = useState("");
+  const [region, setRegion] = useState("");
 
   // Async function to call for the countries api
   async function countriesApiCall() {
@@ -29,6 +29,7 @@ export default function Api_call() {
   }, []);
   console.log(countries);
   console.log(search);
+  console.log(region);
 
   // compares countries name to input value to decide what to display
   const countriesShow = countries.filter((item) => {
@@ -46,7 +47,7 @@ export default function Api_call() {
         </div>
         <div>
           {/* Allows the user to select a region to filter the countries by */}
-          <select name="" id="">
+          <select name="" id="" onChange={(e) => setRegion(e.target.value)}>
             <option selected disabled hidden>
               Filter by region
             </option>
