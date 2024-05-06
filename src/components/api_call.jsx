@@ -33,9 +33,15 @@ export default function Api_call() {
 
   // compares countries name to input value to decide what to display
   const countriesShow = countries.filter((item) => {
-    return search.toUpperCase() === ""
-      ? item
-      : item.name.common.toUpperCase().includes(search.toUpperCase());
+    if ((search.toUpperCase() === "") & (region === "")) {
+      return item;
+    } else if (region !== "") {
+      return (
+        item.name.common.toUpperCase().includes(search.toUpperCase()) && region === item.region
+      );
+    } else {
+      return item.name.common.toUpperCase().includes(search.toUpperCase());
+    }
   });
 
   return (
@@ -51,12 +57,12 @@ export default function Api_call() {
             <option selected disabled hidden>
               Filter by region
             </option>
-            <option value="africa">Africa</option>
-            <option value="americas">America</option>
-            <option value="asia">Asia</option>
-            <option value="europe">Europe</option>
-            <option value="oceania">Oceania</option>
-            <option value="antarctic">Antarctic</option>
+            <option value="Africa">Africa</option>
+            <option value="Americas">America</option>
+            <option value="Asia">Asia</option>
+            <option value="Europe">Europe</option>
+            <option value="Oceania">Oceania</option>
+            <option value="Antarctic">Antarctic</option>
             <option value="">No region</option>
           </select>
         </div>
