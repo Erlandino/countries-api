@@ -45,40 +45,77 @@ export default function Api_call() {
   });
 
   return (
-    <section className="">
-      <nav>
-        <div>
+    <section className="countries">
+      <nav className="countries_nav">
+        <div className="countries_nav_searchBarContainer">
           {/* search bar for countries */}
-          <input type="text" onChange={(e) => setSearch(e.target.value)} />
+          <input
+            className="countries_nav_searchBarContainer_searchbar"
+            type="text"
+            onChange={(e) => setSearch(e.target.value)}
+          />
         </div>
-        <div>
+        <div className="countries_nav_regionContainer">
           {/* Allows the user to select a region to filter the countries by */}
-          <select name="" id="" onChange={(e) => setRegion(e.target.value)}>
-            <option selected disabled hidden>
+          <select
+            className="countries_nav_regionContainer_regions"
+            name="regions"
+            onChange={(e) => setRegion(e.target.value)}
+          >
+            <option
+              className="countries_nav_regionContainer_regions_region"
+              selected
+              disabled
+              hidden
+            >
               Filter by region
             </option>
-            <option value="Africa">Africa</option>
-            <option value="Americas">America</option>
-            <option value="Asia">Asia</option>
-            <option value="Europe">Europe</option>
-            <option value="Oceania">Oceania</option>
-            <option value="Antarctic">Antarctic</option>
-            <option value="">No region</option>
+            <option className="countries_nav_regionContainer_regions_region" value="Africa">
+              Africa
+            </option>
+            <option className="countries_nav_regionContainer_regions_region" value="Americas">
+              America
+            </option>
+            <option className="countries_nav_regionContainer_regions_region" value="Asia">
+              Asia
+            </option>
+            <option className="countries_nav_regionContainer_regions_region" value="Europe">
+              Europe
+            </option>
+            <option className="countries_nav_regionContainer_regions_region" value="Oceania">
+              Oceania
+            </option>
+            <option className="countries_nav_regionContainer_regions_region" value="Antarctic">
+              Antarctic
+            </option>
+            <option className="countries_nav_regionContainer_regions_region" value="">
+              No region
+            </option>
           </select>
         </div>
       </nav>
-      <article>
+      <article className="countries_container">
         {/* loops trough all countries to display and creates elements for them */}
         {countriesShow &&
           countriesShow.map((countryData) => {
             return (
-              <div className="country">
-                <img src={countryData.flags.svg} alt="" width="400" height="200" />
-                <div>
-                  <h2>{countryData.name.common}</h2>
-                  <p>{countryData.population}</p>
-                  <p>{countryData.region}</p>
-                  <p>{countryData.capital}</p>
+              <div className="countries_container_country">
+                <img
+                  className="countries_container_country_img"
+                  src={countryData.flags.svg}
+                  alt=""
+                  width="400"
+                  height="200"
+                />
+                <div className="countries_container_country_txt">
+                  <h2 className="countries_container_country_txt_name">
+                    {countryData.name.common}
+                  </h2>
+                  <p className="countries_container_country_txt_population">
+                    {countryData.population}
+                  </p>
+                  <p className="countries_container_country_txt_region">{countryData.region}</p>
+                  <p className="countries_container_country_txt_capital">{countryData.capital}</p>
                 </div>
               </div>
             );
