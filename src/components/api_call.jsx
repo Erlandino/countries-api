@@ -45,8 +45,8 @@ export default function Api_call() {
   });
 
   return (
-    <div>
-      <div>
+    <section className="">
+      <nav>
         <div>
           {/* search bar for countries */}
           <input type="text" onChange={(e) => setSearch(e.target.value)} />
@@ -66,8 +66,8 @@ export default function Api_call() {
             <option value="">No region</option>
           </select>
         </div>
-      </div>
-      <div>
+      </nav>
+      <article>
         {/* loops trough all countries to display and creates elements for them */}
         {countriesShow &&
           countriesShow.map((countryData) => {
@@ -83,7 +83,7 @@ export default function Api_call() {
               </div>
             );
           })}
-      </div>
-    </div>
+      </article>
+    </section>
   );
 }
