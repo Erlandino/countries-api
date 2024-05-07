@@ -27,19 +27,19 @@ export default function Api_call() {
   useEffect(() => {
     countriesApiCall();
   }, []);
-  console.log(countries);
-  console.log(search);
-  console.log(region);
 
-  // compares countries name to input value to decide what to display
+  // compares countries name to input value and countries regions to region selected to decide what to display
   const countriesShow = countries.filter((item) => {
+    // checks if a name or region has been selected. If not reveal all countries
     if ((search.toUpperCase() === "") & (region === "")) {
       return item;
     } else if (region !== "") {
       return (
+        // compares name and region and reveal the related
         item.name.common.toUpperCase().includes(search.toUpperCase()) && region === item.region
       );
     } else {
+      // compares only name and reveals related
       return item.name.common.toUpperCase().includes(search.toUpperCase());
     }
   });
@@ -47,21 +47,22 @@ export default function Api_call() {
   return (
     <section className="countries">
       <nav className="countries_nav">
+        {/* search bar for countries */}
         <div className="countries_nav_searchBarContainer">
-          {/* search bar for countries */}
           <input
             className="countries_nav_searchBarContainer_searchbar"
             type="text"
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
+        {/* Allows the user to select a region to filter the countries by */}
         <div className="countries_nav_regionContainer">
-          {/* Allows the user to select a region to filter the countries by */}
           <select
             className="countries_nav_regionContainer_regions"
             name="regions"
             onChange={(e) => setRegion(e.target.value)}
           >
+            {/* regions */}
             <option
               className="countries_nav_regionContainer_regions_region"
               selected
@@ -94,6 +95,7 @@ export default function Api_call() {
           </select>
         </div>
       </nav>
+      {/* container for countries */}
       <article className="countries_container">
         {/* loops trough all countries to display and creates elements for them */}
         {countriesShow &&
