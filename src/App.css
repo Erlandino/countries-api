@@ -1,0 +1,17 @@
+body {
+  margin: 0 10px;
+}
+.countries_nav {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+.countries_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.countries_container_country {
+  /* max-width: 200px; */
+  /* max-height: 100px; */
+}

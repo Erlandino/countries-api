@@ -104,7 +104,7 @@ export default function Api_call() {
               <div className="countries_container_country">
                 <img
                   className="countries_container_country_img"
-                  src={countryData.flags.svg}
+                  src={countryData.flags.png}
                   alt=""
                   width="400"
                   height="200"
