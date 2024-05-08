@@ -1,5 +1,7 @@
 // imports
 import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 export default function Api_call() {
   // usestates
@@ -43,12 +45,14 @@ export default function Api_call() {
       return item.name.common.toUpperCase().includes(search.toUpperCase());
     }
   });
+  console.log(faMagnifyingGlass);
 
   return (
     <section className="countries">
       <nav className="countries_nav">
         {/* search bar for countries */}
         <div className="countries_nav_searchBarContainer">
+          <FontAwesomeIcon icon={faMagnifyingGlass} />
           <input
             className="countries_nav_searchBarContainer_searchbar"
             type="text"
