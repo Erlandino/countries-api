@@ -52,6 +52,7 @@ export default function Api_call() {
           <input
             className="countries_nav_searchBarContainer_searchbar"
             type="text"
+            placeholder="Search for a country..."
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
