@@ -29,6 +29,7 @@ export default function Api_call() {
   useEffect(() => {
     countriesApiCall();
   }, []);
+  console.log(countries);
 
   // compares countries name to input value and countries regions to region selected to decide what to display
   const countriesShow = countries.filter((item) => {
@@ -116,7 +117,7 @@ export default function Api_call() {
                 />
                 <div className="countries_container_country_txt">
                   <h2 className="countries_container_country_txt_name">
-                    {countryData.name.common}
+                    {countryData.name.official}
                   </h2>
                   <p className="countries_container_country_txt_population">
                     <strong>Population</strong>: {countryData.population}
