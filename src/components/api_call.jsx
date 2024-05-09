@@ -119,10 +119,14 @@ export default function Api_call() {
                     {countryData.name.common}
                   </h2>
                   <p className="countries_container_country_txt_population">
-                    {countryData.population}
+                    <strong>Population</strong>: {countryData.population}
                   </p>
-                  <p className="countries_container_country_txt_region">{countryData.region}</p>
-                  <p className="countries_container_country_txt_capital">{countryData.capital}</p>
+                  <p className="countries_container_country_txt_region">
+                    <strong>Region</strong>: {countryData.region}
+                  </p>
+                  <p className="countries_container_country_txt_capital">
+                    <strong>Capital</strong>: {countryData.capital}
+                  </p>
                 </div>
               </div>
             );
