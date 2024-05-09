@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
+* {
+  margin: 0;
+}
 body {
   font-family: "Nunito Sans", sans-serif;
   font-weight: 300;
@@ -7,7 +10,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 40px;
+  padding: 20px 40px;
 }
 .dark-mode {
   display: none;
@@ -42,4 +45,18 @@ body {
   border-radius: 2px;
   border: none;
   background-color: hsl(0, 0%, 52%);
+}
+.countries_container_country_img {
+  display: block;
+}
+.countries_container_country_txt {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  padding: 24px 40px 40px 40px;
+  gap: 5px;
+}
+.countries_container_country_txt_name {
+  margin-bottom: 10px;
 }
