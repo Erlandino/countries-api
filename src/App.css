@@ -1,10 +1,8 @@
-body {
-  margin: 0 10px;
-}
 .app_header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 40px;
 }
 .dark-mode {
   display: none;
@@ -14,10 +12,14 @@ body {
   align-items: center;
   gap: 10px;
 }
+.countries {
+  background-color: hsl(0, 0%, 52%);
+  padding: 40px;
+}
 .countries_nav {
   display: flex;
   justify-content: space-between;
-  margin: 10px 0;
+  margin-bottom: 40px;
 }
 .countries_container {
   display: flex;
@@ -25,6 +27,8 @@ body {
   justify-content: space-between;
 }
 .countries_container_country {
+  background-color: white;
+  margin-bottom: 40px;
   /* max-width: 400px; */
   /* max-height: 200px; */
 }
@@ -32,4 +36,5 @@ body {
   padding: 6px 10px;
   border-radius: 2px;
   border: none;
+  background-color: hsl(0, 0%, 52%);
 }
