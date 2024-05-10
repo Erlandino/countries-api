@@ -74,3 +74,16 @@ body {
 .countries_container_country_txt_name {
   margin-bottom: 10px;
 }
+.countries_nav_regionContainer {
+  background-color: white;
+  width: 200px;
+  border-radius: 2px;
+  box-shadow: 2px 2px 8px rgb(170, 170, 170);
+}
+.countries_nav_regionContainer_regions {
+  padding: 15px;
+  border-radius: 2px;
+  border: none;
+  outline: none;
+  width: 100%;
+}
