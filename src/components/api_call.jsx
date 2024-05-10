@@ -53,7 +53,10 @@ export default function Api_call() {
       <nav className="countries_nav">
         {/* search bar for countries */}
         <div className="countries_nav_searchBarContainer">
-          <FontAwesomeIcon icon={faMagnifyingGlass} />
+          <FontAwesomeIcon
+            className="countries_nav_searchBarContainer_searchIcon"
+            icon={faMagnifyingGlass}
+          />
           <input
             className="countries_nav_searchBarContainer_searchbar"
             type="text"

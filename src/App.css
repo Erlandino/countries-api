@@ -1,16 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
 * {
   margin: 0;
+  box-sizing: border-box;
 }
 body {
   font-family: "Nunito Sans", sans-serif;
   font-weight: 300;
+  background-color: hsl(0, 0%, 52%);
 }
 .app_header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 20px 40px;
+  background-color: white;
 }
 .dark-mode {
   display: none;
@@ -21,7 +24,6 @@ body {
   gap: 10px;
 }
 .countries {
-  background-color: hsl(0, 0%, 52%);
   padding: 40px;
 }
 .countries_nav {
@@ -41,10 +43,20 @@ body {
   /* max-height: 200px; */
 }
 .countries_nav_searchBarContainer_searchbar {
-  padding: 6px 10px;
+  padding: 15px 15px 15px 0px;
   border-radius: 2px;
   border: none;
-  background-color: hsl(0, 0%, 52%);
+  outline: none;
+  width: 100%;
+}
+.countries_nav_searchBarContainer {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  width: 30%;
+}
+.countries_nav_searchBarContainer_searchIcon {
+  padding: 0px 20px;
 }
 .countries_container_country_img {
   display: block;
