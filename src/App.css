@@ -6,7 +6,7 @@
 body {
   font-family: "Nunito Sans", sans-serif;
   font-weight: 300;
-  background-color: hsl(0, 0%, 52%);
+  background-color: hsl(0, 0%, 83%);
 }
 .app_header {
   display: flex;
@@ -54,6 +54,8 @@ body {
   align-items: center;
   background-color: white;
   width: 30%;
+  border-radius: 2px;
+  box-shadow: 2px 2px 8px rgb(170, 170, 170);
 }
 .countries_nav_searchBarContainer_searchIcon {
   padding: 0px 20px;
