@@ -112,4 +112,11 @@ body {
   .app_header_dark-light-mode_container {
     font-size: 14px;
   }
+  .countries_container_country_img {
+    width: 300px;
+    height: 150px;
+  }
+  .countries_container_country_txt {
+    max-width: 300px;
+  }
 }
