@@ -106,4 +106,10 @@ body {
   .countries_nav_searchBarContainer {
     width: 100%;
   }
+  .app_header_title {
+    font-size: 16px;
+  }
+  .app_header_dark-light-mode_container {
+    font-size: 14px;
+  }
 }

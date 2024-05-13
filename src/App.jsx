@@ -10,7 +10,7 @@ export default function App() {
   return (
     <main className="app">
       <header className="app_header">
-        <h2>Where in the world</h2>
+        <h2 className="app_header_title">Where in the world</h2>
         <div className="app_header_dark-light-mode_container">
           <div className="light-mode">
             <FontAwesomeIcon icon={faMoonLight} />
