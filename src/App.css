@@ -119,4 +119,10 @@ body {
   .countries_container_country_txt {
     max-width: 300px;
   }
+  .app_header {
+    padding: 30px 20px;
+  }
+  .countries {
+    padding: 30px 20px;
+  }
 }
