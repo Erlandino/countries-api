@@ -93,6 +93,10 @@ body {
 /* navbar end */
 
 /* Countries */
+.countries_container * {
+  text-decoration: none;
+  color: hsl(200, 15%, 8%);
+}
 .countries_container_country_img {
   display: block;
 }

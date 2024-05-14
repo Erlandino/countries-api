@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { HashLink } from "react-router-hash-link";
 
 export default function Api_call() {
   // usestates
@@ -110,29 +111,31 @@ export default function Api_call() {
         {countriesShow &&
           countriesShow.map((countryData) => {
             return (
-              <div className="countries_container_country">
-                <img
-                  className="countries_container_country_img"
-                  src={countryData.flags.png}
-                  alt=""
-                  width="400"
-                  height="200"
-                />
-                <div className="countries_container_country_txt">
-                  <h2 className="countries_container_country_txt_name">
-                    {countryData.name.official}
-                  </h2>
-                  <p className="countries_container_country_txt_population">
-                    <strong>Population</strong>: {countryData.population}
-                  </p>
-                  <p className="countries_container_country_txt_region">
-                    <strong>Region</strong>: {countryData.region}
-                  </p>
-                  <p className="countries_container_country_txt_capital">
-                    <strong>Capital</strong>: {countryData.capital}
-                  </p>
+              <HashLink to={countryData.cca2}>
+                <div className="countries_container_country">
+                  <img
+                    className="countries_container_country_img"
+                    src={countryData.flags.png}
+                    alt=""
+                    width="400"
+                    height="200"
+                  />
+                  <div className="countries_container_country_txt">
+                    <h2 className="countries_container_country_txt_name">
+                      {countryData.name.official}
+                    </h2>
+                    <p className="countries_container_country_txt_population">
+                      <strong>Population</strong>: {countryData.population}
+                    </p>
+                    <p className="countries_container_country_txt_region">
+                      <strong>Region</strong>: {countryData.region}
+                    </p>
+                    <p className="countries_container_country_txt_capital">
+                      <strong>Capital</strong>: {countryData.capital}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </HashLink>
             );
           })}
       </article>
