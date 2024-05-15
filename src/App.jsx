@@ -5,7 +5,17 @@ import Details from "./components/Details";
 import Countries from "./components/Countries";
 import Header from "./components/Header";
 import { HashRouter as Router, Route, Routes } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { countriesApiCall } from "./components/api";
+
+function Dashboard() {
+  return (
+    <div>
+      <Header />
+      <Outlet />
+    </div>
+  );
+}
 
 export default function App() {
   // useStates
@@ -22,10 +32,11 @@ export default function App() {
 
   return (
     <main className="app">
-      <Header />
       <Routes>
-        <Route path="/" exact Component={() => <Countries countriesData={countriesData} />} />
-        <Route path="/:countryCode" Component={() => <Details countries={countriesData} />} />
+        <Route path="/" element={<Dashboard />}>
+          <Route path="/" exact Component={() => <Countries countriesData={countriesData} />} />
+          <Route path="/:countryCode" Component={() => <Details countriesData={countriesData} />} />
+        </Route>
       </Routes>
     </main>
   );
