@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { HashLink } from "react-router-hash-link";
 
-export default function Countries(countriesData) {
+export default function Countries({ countriesData }) {
   // usestates
   const [search, setSearch] = useState("");
   const [region, setRegion] = useState("");
