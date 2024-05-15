@@ -4,36 +4,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { HashLink } from "react-router-hash-link";
 
-export default function Api_call() {
+export default function Countries({ countriesData }) {
   // usestates
-  const [countries, setCountries] = useState([""]);
   const [search, setSearch] = useState("");
   const [region, setRegion] = useState("");
 
-  // Async function to call for the countries api
-  async function countriesApiCall() {
-    try {
-      // Api call
-      const res = await fetch("https://restcountries.com/v3.1/all");
-
-      // Handles the data received from api call and stores it in countries state
-      const data = await res.json();
-      setCountries((prevData) => data);
-
-      // Gives error message in console when there is an error
-    } catch (error) {
-      console.error(`Could not retrieve weather data: ${error}`);
-    }
-  }
-
-  // UseEffect for api call, to prevent infinite api due to setCountries in apiCall function
-  useEffect(() => {
-    countriesApiCall();
-  }, []);
-  console.log(countries);
-
   // compares countries name to input value and countries regions to region selected to decide what to display
-  const countriesShow = countries.filter((item) => {
+  const countriesShow = countriesData.filter((item) => {
     // checks if a name or region has been selected. If not reveal all countries
     if ((search.toUpperCase() === "") & (region === "")) {
       return item;
@@ -47,8 +24,6 @@ export default function Api_call() {
       return item.name.common.toUpperCase().includes(search.toUpperCase());
     }
   });
-  console.log(faMagnifyingGlass);
-
   return (
     <section className="countries">
       <nav className="countries_nav">
