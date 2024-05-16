@@ -11,8 +11,10 @@ export default function Details({ countriesData }) {
   console.log(countryDetails);
   return (
     <section className="details">
-      <div className="go-back-button">
-        <HashLink to="/">Go back</HashLink>
+      <div className="go-back-button-container">
+        <HashLink className="go-back-button-container_button" to="/">
+          Go back
+        </HashLink>
       </div>
       <div className="countryDetails-container">
         <img src={countryDetails.flags.png} alt="" />
