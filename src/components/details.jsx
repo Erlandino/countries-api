@@ -9,15 +9,29 @@ export default function Details({ countriesData }) {
 
   console.log(countryCode);
   console.log(countryDetails);
+  let objtest = {
+    name: {
+      nativeName: "English",
+    },
+  };
 
-  const countryNativeName = () => {
-    if (countryDetails) {
-      const objKey = Object.keys(countryDetails.name.nativeName)[0];
-      return countryDetails.name.nativeName[objKey];
+  objtest = objtest["name"];
+  console.log(objtest);
+
+  const objectSorter = (endpoint) => {
+    if (countryDetails && endpoint) {
+      let current = countryDetails;
+      endpoint.forEach((key) => {
+        if (key in current) {
+          current = current[key];
+        } else {
+          current = undefined;
+        }
+      });
+      return current[Object.keys(current)[0]];
     }
   };
 
-  console.log(countryNativeName());
   if (!countryDetails) {
     return <div>Country not found.</div>;
   }
@@ -32,7 +46,14 @@ export default function Details({ countriesData }) {
       <div className="countryDetails-container">
         <img src={countryDetails.flags.png} alt="" />
         <h1>{countryDetails.name.common}</h1>
-        <p>{countryNativeName().common}</p>
+        <p>{objectSorter(["name", "nativeName"]).common}</p>
+        <p>{countryDetails.population}</p>
+        <p>{countryDetails.region}</p>
+        <p>{countryDetails.subregion}</p>
+        <p>{countryDetails.capital[0]}</p>
+        <p>{countryDetails.tld[0]}</p>
+        <p>{countryDetails.currencies[0]}</p>
+        <p>{countryDetails.languages[0]}</p>
       </div>
     </section>
   );
