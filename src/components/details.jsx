@@ -9,6 +9,11 @@ export default function Details({ countriesData }) {
 
   console.log(countryCode);
   console.log(countryDetails);
+
+  if (!countryDetails) {
+    return <div>Country not found.</div>;
+  }
+
   return (
     <section className="details">
       <div className="go-back-button-container">
