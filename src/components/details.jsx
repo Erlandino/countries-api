@@ -10,6 +10,14 @@ export default function Details({ countriesData }) {
   console.log(countryCode);
   console.log(countryDetails);
 
+  const countryNativeName = () => {
+    if (countryDetails) {
+      const objKey = Object.keys(countryDetails.name.nativeName)[0];
+      return countryDetails.name.nativeName[objKey];
+    }
+  };
+
+  console.log(countryNativeName());
   if (!countryDetails) {
     return <div>Country not found.</div>;
   }
@@ -23,6 +31,8 @@ export default function Details({ countriesData }) {
       </div>
       <div className="countryDetails-container">
         <img src={countryDetails.flags.png} alt="" />
+        <h1>{countryDetails.name.common}</h1>
+        <p>{countryNativeName().common}</p>
       </div>
     </section>
   );
