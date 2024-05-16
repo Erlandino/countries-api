@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 export default function Details({ countriesData }) {
   const { countryCode } = useParams();
@@ -10,7 +11,12 @@ export default function Details({ countriesData }) {
   console.log(countryDetails);
   return (
     <section className="details">
-      <p>testing some more</p>
+      <div className="go-back-button">
+        <HashLink to="/">Go back</HashLink>
+      </div>
+      <div className="countryDetails-container">
+        <img src={countryDetails.flags.png} alt="" />
+      </div>
     </section>
   );
 }
