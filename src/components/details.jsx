@@ -8,7 +8,6 @@ export default function Details({ countriesData }) {
 
   const countryDetails = countriesData.find((filterData) => filterData.cca2 === countryCode);
 
-  console.log(countryCode);
   console.log(countryDetails);
 
   const objectSorter = (endpoint) => {
@@ -16,12 +15,20 @@ export default function Details({ countriesData }) {
       let current = countryDetails;
       endpoint.forEach((key) => {
         if (key in current) {
+          console.log(current[key]);
           current = current[key];
         } else {
           current = undefined;
         }
       });
-      return current[Object.keys(current)[0]];
+      const items = [];
+      for (const key in current) {
+        if (current.hasOwnProperty(key)) {
+          items.push(current[key]);
+        }
+      }
+      console.log(items);
+      return items;
     }
   };
 
@@ -43,9 +50,12 @@ export default function Details({ countriesData }) {
             {countryDetails.name.common}
           </h1>
           <div className="countryDetails-container_description_info">
-            <p>
-              <strong>Native Name:</strong> {objectSorter(["name", "nativeName"]).common}
-            </p>
+            <div>
+              <strong>Native Names:</strong>{" "}
+              {objectSorter(["name", "nativeName"]).map((nativeName) => {
+                return <p>{nativeName.common}</p>;
+              })}
+            </div>
             <p>
               <strong>Population:</strong> {countryDetails.population}
             </p>
@@ -61,12 +71,26 @@ export default function Details({ countriesData }) {
             <p>
               <strong>Top Level Domain:</strong> {countryDetails.tld[0]}
             </p>
-            <p>
-              <strong>Currencies:</strong> {objectSorter(["currencies"]).name}
-            </p>
-            <p>
-              <strong>Languages:</strong> {objectSorter(["languages"])}
-            </p>
+            <div>
+              <strong>Currencies:</strong>{" "}
+              {objectSorter(["currencies"]).map((currency) => {
+                return (
+                  <ul>
+                    <li>{currency.name}</li>
+                  </ul>
+                );
+              })}
+            </div>
+            <div>
+              <strong>Languages:</strong>{" "}
+              {objectSorter(["languages"]).map((language) => {
+                return (
+                  <ul>
+                    <li>{language}</li>
+                  </ul>
+                );
+              })}
+            </div>
           </div>
           <div>
             <strong>Border Countries:</strong>{" "}
