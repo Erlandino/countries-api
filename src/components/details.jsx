@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
+import { getName } from "country-list";
 
 export default function Details({ countriesData }) {
   const { countryCode } = useParams();
@@ -68,7 +69,10 @@ export default function Details({ countriesData }) {
             </p>
           </div>
           <div>
-            <strong>Border Countries:</strong>
+            <strong>Border Countries:</strong>{" "}
+            {countryDetails.borders.map((borderCountry) => {
+              return <li>{getName(borderCountry.slice(0, -1))}</li>;
+            })}
           </div>
         </div>
       </div>
