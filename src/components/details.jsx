@@ -9,14 +9,6 @@ export default function Details({ countriesData }) {
 
   console.log(countryCode);
   console.log(countryDetails);
-  let objtest = {
-    name: {
-      nativeName: "English",
-    },
-  };
-
-  objtest = objtest["name"];
-  console.log(objtest);
 
   const objectSorter = (endpoint) => {
     if (countryDetails && endpoint) {
@@ -45,15 +37,40 @@ export default function Details({ countriesData }) {
       </div>
       <div className="countryDetails-container">
         <img src={countryDetails.flags.png} alt="" />
-        <h1>{countryDetails.name.common}</h1>
-        <p>{objectSorter(["name", "nativeName"]).common}</p>
-        <p>{countryDetails.population}</p>
-        <p>{countryDetails.region}</p>
-        <p>{countryDetails.subregion}</p>
-        <p>{countryDetails.capital[0]}</p>
-        <p>{countryDetails.tld[0]}</p>
-        <p>{countryDetails.currencies[0]}</p>
-        <p>{countryDetails.languages[0]}</p>
+        <div className="countryDetails-container_description">
+          <h1 className="countryDetails-container_description_title">
+            {countryDetails.name.common}
+          </h1>
+          <div className="countryDetails-container_description_info">
+            <p>
+              <strong>Native Name:</strong> {objectSorter(["name", "nativeName"]).common}
+            </p>
+            <p>
+              <strong>Population:</strong> {countryDetails.population}
+            </p>
+            <p>
+              <strong>Region:</strong> {countryDetails.region}
+            </p>
+            <p>
+              <strong>Sub Region:</strong> {countryDetails.subregion}
+            </p>
+            <p>
+              <strong>Capital:</strong> {countryDetails.capital[0]}
+            </p>
+            <p>
+              <strong>Top Level Domain:</strong> {countryDetails.tld[0]}
+            </p>
+            <p>
+              <strong>Currencies:</strong> {objectSorter(["currencies"]).name}
+            </p>
+            <p>
+              <strong>Languages:</strong> {objectSorter(["languages"])}
+            </p>
+          </div>
+          <div>
+            <strong>Border Countries:</strong>
+          </div>
+        </div>
       </div>
     </section>
   );
