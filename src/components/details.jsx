@@ -3,12 +3,15 @@ import { useParams } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import countryData from "country-data";
 export default function Details({ countriesData }) {
+  // uses params to get countrycode from url
   const { countryCode } = useParams();
 
+  // uses countrycode to find api data of the country with the country code
   const countryDetails = countriesData.find((filterData) => filterData.cca2 === countryCode);
 
-  console.log(countryDetails);
-
+  // The api contains alot of data that should of been in arrays but are in objects.
+  // Therefore we need a special way to loop trough the objects like we do in arrays.
+  // Thats what the objectSorter is for, give it a path in an array trough function arguments.
   const objectSorter = (endpoint) => {
     if (countryDetails && endpoint) {
       let current = countryDetails;
