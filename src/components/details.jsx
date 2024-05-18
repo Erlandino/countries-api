@@ -1,7 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
-import { getName } from "country-list";
 import countryData from "country-data";
 export default function Details({ countriesData }) {
   const { countryCode } = useParams();
@@ -50,9 +49,11 @@ export default function Details({ countriesData }) {
           <div className="countryDetails-container_description_info">
             <div>
               <strong>Native Names:</strong>{" "}
-              {objectSorter(["name", "nativeName"]).map((nativeName) => {
-                return <p>{nativeName.common}</p>;
-              })}
+              <ul>
+                {objectSorter(["name", "nativeName"]).map((nativeName) => {
+                  return <li>{nativeName.common}</li>;
+                })}
+              </ul>
             </div>
             <p>
               <strong>Population:</strong> {countryDetails.population}
