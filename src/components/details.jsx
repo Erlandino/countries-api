@@ -54,67 +54,86 @@ export default function Details({ countriesData }) {
   // jsx
   return (
     <section className="details">
+      {/* Go back button */}
       <div className="go-back-button-container">
         <HashLink className="go-back-button-container_button" to="/">
           Go back
         </HashLink>
       </div>
       <div className="countryDetails-container">
+        {/* Flag */}
         <img src={countryDetails.flags.png} alt="" />
         <div className="countryDetails-container_description">
+          {/* Country name */}
           <h1 className="countryDetails-container_description_title">
             {countryDetails.name.common}
           </h1>
           <div className="countryDetails-container_description_info">
+            {/* Native name */}
             <div>
               <strong>Native Names:</strong>{" "}
               <ul>
+                {/* Calls objectsorter with path to nativenames then maps to and create elements for each name */}
                 {objectSorter(["name", "nativeName"]).map((nativeName) => {
                   return <li>{nativeName.common}</li>;
                 })}
               </ul>
             </div>
+            {/* Population */}
             <p>
               <strong>Population:</strong> {countryDetails.population}
             </p>
+            {/* Region */}
             <p>
               <strong>Region:</strong> {countryDetails.region}
             </p>
+            {/* Sub Region */}
             <p>
               <strong>Sub Region:</strong> {countryDetails.subregion}
             </p>
+            {/* Capital */}
             <p>
               <strong>Capital:</strong> {countryDetails.capital[0]}
             </p>
+            {/* Top Level Domain */}
             <p>
               <strong>Top Level Domain:</strong> {countryDetails.tld[0]}
             </p>
+            {/* Currencies */}
             <div>
               <strong>Currencies:</strong>{" "}
               <ul>
+                {/* Calls objectsorter with path to currencies then maps to and create elements for each currency */}
                 {objectSorter(["currencies"]).map((currency) => {
                   return <li>{currency.name}</li>;
                 })}
               </ul>
             </div>
+            {/* Languages */}
             <div>
               <strong>Languages:</strong>{" "}
               <ul>
+                {/* Calls objectsorter with path to languages then maps to and create elements for each language */}
                 {objectSorter(["languages"]).map((language) => {
                   return <li>{language}</li>;
                 })}
               </ul>
             </div>
           </div>
+          {/* Border Countries */}
           <div>
-            <strong>Border Countries:</strong>{" "}
+            <strong>Border Countries:</strong>
+            {/* Checks if country has borders */}
             {countryDetails.borders ? (
               <ul>
+                {/* Maps trough borders array in countrydetails and creates a new element for each border 
+                and creates a full country name trough countrydata package using the 3 letter countrycode from borders array item*/}
                 {countryDetails.borders?.map((borderCountry) => {
                   return <li>{countryData.countries[borderCountry].name}</li>;
                 })}
               </ul>
             ) : (
+              // If country has no borders
               <p>None</p>
             )}
           </div>
