@@ -3,39 +3,55 @@ import { useParams } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import countryData from "country-data";
 export default function Details({ countriesData }) {
-  // uses params to get countrycode from url
+  // Uses params to get countrycode from url
   const { countryCode } = useParams();
 
-  // uses countrycode to find api data of the country with the country code
+  // Uses countrycode to find api data of the country with the country code
   const countryDetails = countriesData.find((filterData) => filterData.cca2 === countryCode);
 
   // The api contains alot of data that should of been in arrays but are in objects.
   // Therefore we need a special way to loop trough the objects like we do in arrays.
   // Thats what the objectSorter is for, give it a path in an array trough function arguments.
   const objectSorter = (endpoint) => {
+    // If data from api is available
     if (countryDetails && endpoint) {
-      let current = countryDetails;
-      endpoint.forEach((key) => {
-        if (key in current) {
-          current = current[key];
+      // Adds api data of country to currentPath
+      let currentPath = countryDetails;
+      // Sorts trough data from endpoint parameter and uses it to create a path to data
+      endpoint.forEach((currentItem) => {
+        // If the currentItem is an property of currentPath
+        if (currentItem in currentPath) {
+          // Changes content of currentPath to be the object gained from
+          // Using the path in the if statement above in the code below
+          currentPath = currentPath[currentItem];
         } else {
-          current = undefined;
+          // This shouldn't happen but just in case
+          currentPath = undefined;
         }
       });
-      const items = [];
-      for (const key in current) {
-        if (current.hasOwnProperty(key)) {
-          items.push(current[key]);
+
+      // Constant to allow us to push values in array
+      const endPointItems = [];
+
+      // Lastly puts all the the property values from the new currentPath in an array
+      for (const currentProperty in currentPath) {
+        // If the currentProperty is in currentPath
+        if (currentProperty in currentPath) {
+          // Pushed the value of currentProperty in currentPath into the array of endPointItems
+          endPointItems.push(currentPath[currentProperty]);
         }
       }
-      return items;
+      // Sends the new sorted array of property values back to the caller
+      return endPointItems;
     }
   };
 
+  // if data from api has not arrived yet
   if (!countryDetails) {
     return <div>Country not found.</div>;
   }
 
+  // jsx
   return (
     <section className="details">
       <div className="go-back-button-container">
@@ -75,23 +91,19 @@ export default function Details({ countriesData }) {
             </p>
             <div>
               <strong>Currencies:</strong>{" "}
-              {objectSorter(["currencies"]).map((currency) => {
-                return (
-                  <ul>
-                    <li>{currency.name}</li>
-                  </ul>
-                );
-              })}
+              <ul>
+                {objectSorter(["currencies"]).map((currency) => {
+                  return <li>{currency.name}</li>;
+                })}
+              </ul>
             </div>
             <div>
               <strong>Languages:</strong>{" "}
-              {objectSorter(["languages"]).map((language) => {
-                return (
-                  <ul>
-                    <li>{language}</li>
-                  </ul>
-                );
-              })}
+              <ul>
+                {objectSorter(["languages"]).map((language) => {
+                  return <li>{language}</li>;
+                })}
+              </ul>
             </div>
           </div>
           <div>
