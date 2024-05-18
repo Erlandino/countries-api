@@ -70,7 +70,7 @@ export default function Details({ countriesData }) {
           </h1>
           <div className="countryDetails-container_description_info">
             {/* Native name */}
-            <div>
+            <div className="countryDetails-container_description_info_nativeNames">
               <strong>Native Names:</strong>{" "}
               <ul>
                 {/* Calls objectsorter with path to nativenames then maps to and create elements for each name */}
@@ -80,27 +80,27 @@ export default function Details({ countriesData }) {
               </ul>
             </div>
             {/* Population */}
-            <p>
+            <p className="countryDetails-container_description_info_population">
               <strong>Population:</strong> {countryDetails.population}
             </p>
             {/* Region */}
-            <p>
+            <p className="countryDetails-container_description_info_region">
               <strong>Region:</strong> {countryDetails.region}
             </p>
             {/* Sub Region */}
-            <p>
+            <p className="countryDetails-container_description_info_subRegion">
               <strong>Sub Region:</strong> {countryDetails.subregion}
             </p>
             {/* Capital */}
-            <p>
+            <p className="countryDetails-container_description_info_capital">
               <strong>Capital:</strong> {countryDetails.capital[0]}
             </p>
             {/* Top Level Domain */}
-            <p>
+            <p className="countryDetails-container_description_info_tld">
               <strong>Top Level Domain:</strong> {countryDetails.tld[0]}
             </p>
             {/* Currencies */}
-            <div>
+            <div className="countryDetails-container_description_info_currencies">
               <strong>Currencies:</strong>{" "}
               <ul>
                 {/* Calls objectsorter with path to currencies then maps to and create elements for each currency */}
@@ -110,7 +110,7 @@ export default function Details({ countriesData }) {
               </ul>
             </div>
             {/* Languages */}
-            <div>
+            <div className="countryDetails-container_description_info_languages">
               <strong>Languages:</strong>{" "}
               <ul>
                 {/* Calls objectsorter with path to languages then maps to and create elements for each language */}
@@ -121,7 +121,7 @@ export default function Details({ countriesData }) {
             </div>
           </div>
           {/* Border Countries */}
-          <div>
+          <div className="countryDetails-container_description_info_borders">
             <strong>Border Countries:</strong>
             {/* Checks if country has borders */}
             {countryDetails.borders ? (
