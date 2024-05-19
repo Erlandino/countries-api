@@ -66,7 +66,7 @@ export default function Details({ countriesData }) {
       </div>
       <div className="countryDetails-container">
         {/* Flag */}
-        <img src={countryDetails.flags.png} alt="" />
+        <img className="countryDetails-container_flag" src={countryDetails.flags.png} alt="" />
         <div className="countryDetails-container_description">
           {/* Country name */}
           <h1 className="countryDetails-container_description_title">
@@ -129,7 +129,7 @@ export default function Details({ countriesData }) {
             <strong>Border Countries:</strong>
             {/* Checks if country has borders */}
             {countryDetails.borders ? (
-              <ul>
+              <ul className="countryDetails-container_description_info_borders_list">
                 {/* Maps trough borders array in countrydetails and creates a new element for each border 
                 and creates a full country name trough countrydata package using the 3 letter countrycode from borders array item*/}
                 {countryDetails.borders?.map((borderCountry) => {

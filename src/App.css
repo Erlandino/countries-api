@@ -3,6 +3,7 @@
   margin: 0;
   box-sizing: border-box;
   color: hsl(200, 15%, 8%);
+  list-style-type: none;
 }
 body {
   font-family: "Nunito Sans", sans-serif;
@@ -157,6 +158,9 @@ body {
   place-self: center;
   width: 90%;
 }
+.countryDetails-container {
+  display: flex;
+}
 .go-back-button-container {
   display: flex;
   margin: 40px 0px;
@@ -170,4 +174,11 @@ body {
 }
 .go-back-button-container_button_icon {
   margin-right: 10px;
+}
+
+.countryDetails-container_description_info_borders {
+  display: flex;
+}
+.countryDetails-container_description_info_borders_list {
+  display: flex;
 }
