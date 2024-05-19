@@ -10,7 +10,7 @@ import { countriesApiCall } from "./components/api";
 
 function Dashboard() {
   return (
-    <div>
+    <div className="app_container">
       <Header />
       <Outlet />
     </div>

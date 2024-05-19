@@ -2,12 +2,18 @@
 * {
   margin: 0;
   box-sizing: border-box;
+  color: hsl(200, 15%, 8%);
 }
 body {
   font-family: "Nunito Sans", sans-serif;
   font-weight: 300;
   background-color: hsl(0, 0%, 83%);
 }
+.app_container {
+  display: flex;
+  flex-direction: column;
+}
+
 /* header */
 .app_header {
   display: flex;
@@ -143,3 +149,25 @@ body {
   }
 }
 /* countries end */
+
+/* Details */
+.details {
+  display: flex;
+  flex-direction: column;
+  place-self: center;
+  width: 90%;
+}
+.go-back-button-container {
+  display: flex;
+  margin: 40px 0px;
+}
+.go-back-button-container_button {
+  padding: 10px 30px;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0px 0px 14px rgb(170, 170, 170);
+  text-decoration: none;
+}
+.go-back-button-container_button_icon {
+  margin-right: 10px;
+}

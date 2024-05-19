@@ -2,6 +2,9 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import countryData from "country-data";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft as faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+
 export default function Details({ countriesData }) {
   // Uses params to get countrycode from url
   const { countryCode } = useParams();
@@ -57,7 +60,8 @@ export default function Details({ countriesData }) {
       {/* Go back button */}
       <div className="go-back-button-container">
         <HashLink className="go-back-button-container_button" to="/">
-          Go back
+          <FontAwesomeIcon className="go-back-button-container_button_icon" icon={faArrowLeft} />
+          Back
         </HashLink>
       </div>
       <div className="countryDetails-container">
