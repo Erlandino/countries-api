@@ -175,10 +175,22 @@ body {
 .go-back-button-container_button_icon {
   margin-right: 10px;
 }
+.countryDetails-container_description {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
+.countryDetails-container_description_info_nativeNames,
+.countryDetails-container_description_info_currencies,
+.countryDetails-container_description_info_languages,
 .countryDetails-container_description_info_borders {
   display: flex;
 }
+.countryDetails-container_description_info_nativeNames_list,
+.countryDetails-container_description_info_currencies_list,
+.countryDetails-container_description_info_languages_list,
 .countryDetails-container_description_info_borders_list {
   display: flex;
+  padding-left: 4px;
 }

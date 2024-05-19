@@ -76,7 +76,7 @@ export default function Details({ countriesData }) {
             {/* Native name */}
             <div className="countryDetails-container_description_info_nativeNames">
               <strong>Native Names:</strong>{" "}
-              <ul>
+              <ul className="countryDetails-container_description_info_nativeNames_list">
                 {/* Calls objectsorter with path to nativenames then maps to and create elements for each name */}
                 {objectSorter(["name", "nativeName"]).map((nativeName) => {
                   return <li>{nativeName.common}</li>;
@@ -106,7 +106,7 @@ export default function Details({ countriesData }) {
             {/* Currencies */}
             <div className="countryDetails-container_description_info_currencies">
               <strong>Currencies:</strong>{" "}
-              <ul>
+              <ul className="countryDetails-container_description_info_currencies_list">
                 {/* Calls objectsorter with path to currencies then maps to and create elements for each currency */}
                 {objectSorter(["currencies"]).map((currency) => {
                   return <li>{currency.name}</li>;
@@ -116,7 +116,7 @@ export default function Details({ countriesData }) {
             {/* Languages */}
             <div className="countryDetails-container_description_info_languages">
               <strong>Languages:</strong>{" "}
-              <ul>
+              <ul className="countryDetails-container_description_info_languages_list">
                 {/* Calls objectsorter with path to languages then maps to and create elements for each language */}
                 {objectSorter(["languages"]).map((language) => {
                   return <li>{language}</li>;
