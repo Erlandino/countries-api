@@ -49,6 +49,8 @@ export default function Details({ countriesData }) {
     }
   };
 
+  console.log(countryDetails);
+
   // if data from api has not arrived yet
   if (!countryDetails) {
     return <div>Country not found.</div>;
@@ -66,7 +68,7 @@ export default function Details({ countriesData }) {
       </div>
       <div className="countryDetails-container">
         {/* Flag */}
-        <img className="countryDetails-container_flag" src={countryDetails.flags.png} alt="" />
+        <img className="countryDetails-container_flag" src={countryDetails.flags.svg} alt="" />
         <div className="countryDetails-container_description">
           {/* Country name */}
           <h1 className="countryDetails-container_description_title">
