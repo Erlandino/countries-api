@@ -192,12 +192,28 @@ body {
   height: 200px;
   gap: 10px;
 }
-
 .countryDetails-container_description_info * {
   box-sizing: border-box;
 }
 .countryDetails-container_flag {
   width: 600px;
+}
+.countryDetails-container_description_info_borders_list_item {
+  padding: 5px 20px;
+  border-radius: 2px;
+  /* background-color: white; */
+  box-shadow: 0px 0px 4px rgb(170, 170, 170);
+  cursor: pointer;
+}
+.countryDetails-container_description_info_borders_list {
+  gap: 10px;
+}
+.countryDetails-container_description_info_borders_description {
+  display: flex;
+  align-items: center;
+}
+.countryDetails-container_description_info_borders {
+  gap: 10px;
 }
 
 .countryDetails-container_description_info_nativeNames,

@@ -158,14 +158,20 @@ export default function Details({ countriesData }) {
           </div>
           {/* Border Countries */}
           <div className="countryDetails-container_description_info_borders">
-            <strong>Border Countries:</strong>
+            <strong className="countryDetails-container_description_info_borders_description">
+              Border Countries:
+            </strong>
             {/* Checks if country has borders */}
             {countryDetails.borders ? (
               <ul className="countryDetails-container_description_info_borders_list">
                 {/* Maps trough borders array in countrydetails and creates a new element for each border 
                 and creates a full country name trough countrydata package using the 3 letter countrycode from borders array item*/}
                 {countryDetails.borders?.map((borderCountry) => {
-                  return <li>{countryData.countries[borderCountry].name}</li>;
+                  return (
+                    <li className="countryDetails-container_description_info_borders_list_item">
+                      {countryData.countries[borderCountry].name}
+                    </li>
+                  );
                 })}
               </ul>
             ) : (
