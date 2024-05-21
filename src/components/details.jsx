@@ -33,6 +33,8 @@ export default function Details({ countriesData }) {
         }
       });
 
+      console.log(countryData.countries);
+
       // Constant to allow us to push values in array
       const endPointItems = [];
 
@@ -170,8 +172,8 @@ export default function Details({ countriesData }) {
                   return (
                     <Link to={`../${borderCountry}`}>
                       <li className="countryDetails-container_description_info_borders_list_item">
-                        console.log(countryData.countries[borderCountry].name)
-                        {countryData.countries[borderCountry].name}
+                        {countryData.countries[borderCountry]?.name &&
+                          countryData.countries[borderCountry]?.name}
                       </li>
                     </Link>
                   );
