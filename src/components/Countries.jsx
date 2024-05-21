@@ -86,7 +86,7 @@ export default function Countries({ countriesData }) {
         {countriesShow &&
           countriesShow.map((countryData) => {
             return (
-              <HashLink to={countryData.cca2}>
+              <HashLink to={countryData.cca3}>
                 <div className="countries_container_country">
                   <img
                     className="countries_container_country_img"

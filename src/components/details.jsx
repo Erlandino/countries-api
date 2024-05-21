@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import countryData from "country-data";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,7 +10,7 @@ export default function Details({ countriesData }) {
   const { countryCode } = useParams();
 
   // Uses countrycode to find api data of the country with the country code
-  const countryDetails = countriesData.find((filterData) => filterData.cca2 === countryCode);
+  const countryDetails = countriesData.find((filterData) => filterData.cca3 === countryCode);
 
   // The api contains alot of data that should of been in arrays but are in objects.
   // Therefore we need a special way to loop trough the objects like we do in arrays.
@@ -168,9 +168,12 @@ export default function Details({ countriesData }) {
                 and creates a full country name trough countrydata package using the 3 letter countrycode from borders array item*/}
                 {countryDetails.borders?.map((borderCountry) => {
                   return (
-                    <li className="countryDetails-container_description_info_borders_list_item">
-                      {countryData.countries[borderCountry].name}
-                    </li>
+                    <Link to={`../${borderCountry}`}>
+                      <li className="countryDetails-container_description_info_borders_list_item">
+                        console.log(countryData.countries[borderCountry].name)
+                        {countryData.countries[borderCountry].name}
+                      </li>
+                    </Link>
                   );
                 })}
               </ul>
