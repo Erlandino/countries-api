@@ -75,13 +75,19 @@ export default function Details({ countriesData }) {
           <div className="countryDetails-container_description_info">
             {/* Native name */}
             <div className="countryDetails-container_description_info_nativeNames">
-              <strong>Native Names:</strong>{" "}
-              <ul className="countryDetails-container_description_info_nativeNames_list">
-                {/* Calls objectsorter with path to nativenames then maps to and create elements for each name */}
-                {objectSorter(["name", "nativeName"]).map((nativeName) => {
-                  return <li>{nativeName.common}</li>;
-                })}
-              </ul>
+              <strong>Native Names:</strong>
+              {/* Checks if country has nativeName */}
+              {countryDetails.name.nativeName ? (
+                <ul className="countryDetails-container_description_info_nativeNames_list">
+                  {/* Calls objectsorter with path to nativenames then maps to and create elements for each name */}
+                  {objectSorter(["name", "nativeName"]).map((nativeName) => {
+                    return <li>{nativeName.common}</li>;
+                  })}
+                </ul>
+              ) : (
+                // If country has no nativeName
+                <p>None</p>
+              )}
             </div>
             {/* Population */}
             <p className="countryDetails-container_description_info_population">
@@ -92,36 +98,60 @@ export default function Details({ countriesData }) {
               <strong>Region:</strong> {countryDetails.region}
             </p>
             {/* Sub Region */}
-            <p className="countryDetails-container_description_info_subRegion">
-              <strong>Sub Region:</strong> {countryDetails.subregion}
-            </p>
+            {/* Checks if country has subregion */}
+            {countryDetails.subregion ? (
+              <p className="countryDetails-container_description_info_subRegion">
+                <strong>Sub Region:</strong> {countryDetails.subregion}
+              </p>
+            ) : (
+              // If country has no subregion
+              <p>None</p>
+            )}
             {/* Capital */}
-            <p className="countryDetails-container_description_info_capital">
-              <strong>Capital:</strong> {countryDetails.capital[0]}
-            </p>
+            {/* Checks if country has Capital */}
+            {countryDetails.capital ? (
+              <p className="countryDetails-container_description_info_capital">
+                <strong>Capital:</strong> {countryDetails.capital[0]}
+              </p>
+            ) : (
+              // If country has no Capital
+              <p>None</p>
+            )}
             {/* Top Level Domain */}
             <p className="countryDetails-container_description_info_tld">
               <strong>Top Level Domain:</strong> {countryDetails.tld[0]}
             </p>
             {/* Currencies */}
             <div className="countryDetails-container_description_info_currencies">
-              <strong>Currencies:</strong>{" "}
-              <ul className="countryDetails-container_description_info_currencies_list">
-                {/* Calls objectsorter with path to currencies then maps to and create elements for each currency */}
-                {objectSorter(["currencies"]).map((currency) => {
-                  return <li>{currency.name}</li>;
-                })}
-              </ul>
+              <strong>Currencies:</strong>
+              {/* Checks if country has currencies */}
+              {countryDetails.currencies ? (
+                <ul className="countryDetails-container_description_info_currencies_list">
+                  {/* Calls objectsorter with path to currencies then maps to and create elements for each currency */}
+                  {objectSorter(["currencies"]).map((currency) => {
+                    return <li>{currency.name}</li>;
+                  })}
+                </ul>
+              ) : (
+                // If country has no currencies
+                <p>None</p>
+              )}
             </div>
             {/* Languages */}
             <div className="countryDetails-container_description_info_languages">
-              <strong>Languages:</strong>{" "}
-              <ul className="countryDetails-container_description_info_languages_list">
-                {/* Calls objectsorter with path to languages then maps to and create elements for each language */}
-                {objectSorter(["languages"]).map((language) => {
-                  return <li>{language}</li>;
-                })}
-              </ul>
+              <strong>Languages:</strong>
+              {/* Checks if country has languages */}
+              {countryDetails.languages ? (
+                <ul className="countryDetails-container_description_info_languages_list">
+                  {/* Calls objectsorter with path to languages then maps to and create elements for each language */}
+                  {objectSorter(["languages"]).map((language) => {
+                    return <li>{language}</li>;
+                  })}
+                </ul>
+              ) : (
+                // If country has no languages
+                <p>None</p>
+              )}
             </div>
           </div>
           {/* Border Countries */}
