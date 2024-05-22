@@ -12,6 +12,14 @@ export default function Details({ countriesData }) {
   // Uses countrycode to find api data of the country with the country code
   const countryDetails = countriesData.find((filterData) => filterData.cca3 === countryCode);
 
+  const countryNameFromCode = (code) => {
+    return countriesData.find((filterData) => filterData.cca3 === code);
+  };
+
+  if (countriesData) {
+    console.log(countryNameFromCode("UNK"));
+  }
+
   // The api contains alot of data that should of been in arrays but are in objects.
   // Therefore we need a special way to loop trough the objects like we do in arrays.
   // Thats what the objectSorter is for, give it a path in an array trough function arguments.
@@ -33,7 +41,7 @@ export default function Details({ countriesData }) {
         }
       });
 
-      console.log(countryData.countries);
+      console.log(countriesData);
 
       // Constant to allow us to push values in array
       const endPointItems = [];
@@ -123,7 +131,9 @@ export default function Details({ countriesData }) {
             )}
             {/* Top Level Domain */}
             <p className="countryDetails-container_description_info_tld">
-              <strong>Top Level Domain:</strong> {countryDetails.tld[0]}
+              <strong>Top Level Domain:</strong>
+
+              {countryDetails.tld ? countryDetails.tld[0] : " None"}
             </p>
             {/* Currencies */}
             <div className="countryDetails-container_description_info_currencies">
@@ -172,8 +182,7 @@ export default function Details({ countriesData }) {
                   return (
                     <Link to={`../${borderCountry}`}>
                       <li className="countryDetails-container_description_info_borders_list_item">
-                        {countryData.countries[borderCountry]?.name &&
-                          countryData.countries[borderCountry]?.name}
+                        {countryNameFromCode(borderCountry).name.common}
                       </li>
                     </Link>
                   );
