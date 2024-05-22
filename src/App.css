@@ -8,7 +8,7 @@
 body {
   font-family: "Nunito Sans", sans-serif;
   font-weight: 300;
-  background-color: hsl(0, 0%, 83%);
+  background-color: hsl(0, 0%, 98%);
 }
 .app_container {
   display: flex;
@@ -22,6 +22,7 @@ body {
   justify-content: space-between;
   padding: 20px 40px;
   background-color: white;
+  box-shadow: 0px 1px 8px rgb(170, 170, 170);
 }
 .dark-mode {
   display: none;
@@ -70,7 +71,7 @@ body {
   background-color: white;
   width: 30%;
   border-radius: 2px;
-  box-shadow: 2px 2px 8px rgb(170, 170, 170);
+  box-shadow: 2px 2px 6px 0px rgb(170, 170, 170);
 }
 .countries_nav_searchBarContainer_searchbar {
   padding: 15px 15px 15px 0px;
@@ -207,6 +208,9 @@ body {
 }
 .countryDetails-container_description_info_borders_list {
   gap: 10px;
+}
+.countryDetails-container_description_info_borders_list a {
+  text-decoration: none;
 }
 .countryDetails-container_description_info_borders_description {
   display: flex;
