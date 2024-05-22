@@ -12,6 +12,7 @@ https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-swi
 - [x] Make styling for the main page
   - Probably going to make some slight adjustments to how countries content are sized in the future
 - [x] Click on a country to see more detailed information on a separate page
-- [ ] Make styling for the detailed information page
-- [ ] Click through to the border countries on the detail page
+- [x] Make styling for the detailed information page
+  - Probably going to make some slight adjustments to the sizing in the future
+- [x] Click through to the border countries on the detail page
 - [ ] Toggle the color scheme between light and dark mode
