@@ -10,7 +10,11 @@ export default function Details({ countriesData }) {
   const { countryCode } = useParams();
 
   // Uses countrycode to find api data of the country with the country code
-  const countryDetails = countriesData.find((filterData) => filterData.cca3 === countryCode);
+  const countryDetails = () => {
+    if (countriesData) {
+      return countriesData.find((filterData) => filterData.cca3 === countryCode);
+    }
+  };
 
   const countryNameFromCode = (code) => {
     return countriesData.find((filterData) => filterData.cca3 === code);
@@ -25,9 +29,9 @@ export default function Details({ countriesData }) {
   // Thats what the objectSorter is for, give it a path in an array trough function arguments.
   const objectSorter = (endpoint) => {
     // If data from api is available
-    if (countryDetails && endpoint) {
+    if (countryDetails() && endpoint) {
       // Adds api data of country to currentPath
-      let currentPath = countryDetails;
+      let currentPath = countryDetails();
       // Sorts trough data from endpoint parameter and uses it to create a path to data
       endpoint.forEach((currentItem) => {
         // If the currentItem is an property of currentPath
@@ -59,10 +63,10 @@ export default function Details({ countriesData }) {
     }
   };
 
-  console.log(countryDetails);
+  console.log(countryDetails());
 
   // if data from api has not arrived yet
-  if (!countryDetails) {
+  if (!countryDetails()) {
     return <div>Country not found.</div>;
   }
 
@@ -78,18 +82,18 @@ export default function Details({ countriesData }) {
       </div>
       <div className="countryDetails-container">
         {/* Flag */}
-        <img className="countryDetails-container_flag" src={countryDetails.flags.svg} alt="" />
+        <img className="countryDetails-container_flag" src={countryDetails().flags.svg} alt="" />
         <div className="countryDetails-container_description">
           {/* Country name */}
           <h1 className="countryDetails-container_description_title">
-            {countryDetails.name.common}
+            {countryDetails().name.common}
           </h1>
           <div className="countryDetails-container_description_info">
             {/* Native name */}
             <div className="countryDetails-container_description_info_nativeNames">
               <strong>Native Names:</strong>
               {/* Checks if country has nativeName */}
-              {countryDetails.name.nativeName ? (
+              {countryDetails().name.nativeName ? (
                 <ul className="countryDetails-container_description_info_nativeNames_list">
                   {/* Calls objectsorter with path to nativenames then maps to and create elements for each name */}
                   {objectSorter(["name", "nativeName"]).map((nativeName) => {
@@ -103,17 +107,17 @@ export default function Details({ countriesData }) {
             </div>
             {/* Population */}
             <p className="countryDetails-container_description_info_population">
-              <strong>Population:</strong> {countryDetails.population}
+              <strong>Population:</strong> {countryDetails().population}
             </p>
             {/* Region */}
             <p className="countryDetails-container_description_info_region">
-              <strong>Region:</strong> {countryDetails.region}
+              <strong>Region:</strong> {countryDetails().region}
             </p>
             {/* Sub Region */}
             {/* Checks if country has subregion */}
-            {countryDetails.subregion ? (
+            {countryDetails().subregion ? (
               <p className="countryDetails-container_description_info_subRegion">
-                <strong>Sub Region:</strong> {countryDetails.subregion}
+                <strong>Sub Region:</strong> {countryDetails().subregion}
               </p>
             ) : (
               // If country has no subregion
@@ -121,9 +125,9 @@ export default function Details({ countriesData }) {
             )}
             {/* Capital */}
             {/* Checks if country has Capital */}
-            {countryDetails.capital ? (
+            {countryDetails().capital ? (
               <p className="countryDetails-container_description_info_capital">
-                <strong>Capital:</strong> {countryDetails.capital[0]}
+                <strong>Capital:</strong> {countryDetails().capital[0]}
               </p>
             ) : (
               // If country has no Capital
@@ -133,13 +137,13 @@ export default function Details({ countriesData }) {
             <p className="countryDetails-container_description_info_tld">
               <strong>Top Level Domain:</strong>
 
-              {countryDetails.tld ? countryDetails.tld[0] : " None"}
+              {countryDetails().tld ? countryDetails().tld[0] : " None"}
             </p>
             {/* Currencies */}
             <div className="countryDetails-container_description_info_currencies">
               <strong>Currencies:</strong>
               {/* Checks if country has currencies */}
-              {countryDetails.currencies ? (
+              {countryDetails().currencies ? (
                 <ul className="countryDetails-container_description_info_currencies_list">
                   {/* Calls objectsorter with path to currencies then maps to and create elements for each currency */}
                   {objectSorter(["currencies"]).map((currency) => {
@@ -155,7 +159,7 @@ export default function Details({ countriesData }) {
             <div className="countryDetails-container_description_info_languages">
               <strong>Languages:</strong>
               {/* Checks if country has languages */}
-              {countryDetails.languages ? (
+              {countryDetails().languages ? (
                 <ul className="countryDetails-container_description_info_languages_list">
                   {/* Calls objectsorter with path to languages then maps to and create elements for each language */}
                   {objectSorter(["languages"]).map((language) => {
@@ -174,11 +178,11 @@ export default function Details({ countriesData }) {
               Border Countries:
             </strong>
             {/* Checks if country has borders */}
-            {countryDetails.borders ? (
+            {countryDetails().borders ? (
               <ul className="countryDetails-container_description_info_borders_list">
                 {/* Maps trough borders array in countrydetails and creates a new element for each border 
                 and creates a full country name trough countrydata package using the 3 letter countrycode from borders array item*/}
-                {countryDetails.borders?.map((borderCountry) => {
+                {countryDetails().borders?.map((borderCountry) => {
                   return (
                     <Link to={`../${borderCountry}`}>
                       <li className="countryDetails-container_description_info_borders_list_item">
