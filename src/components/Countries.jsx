@@ -10,20 +10,31 @@ export default function Countries({ countriesData }) {
   const [region, setRegion] = useState("");
 
   // compares countries name to input value and countries regions to region selected to decide what to display
-  const countriesShow = countriesData.filter((item) => {
-    // checks if a name or region has been selected. If not reveal all countries
-    if ((search.toUpperCase() === "") & (region === "")) {
-      return item;
-    } else if (region !== "") {
-      return (
-        // compares name and region and reveal the related
-        item.name.common.toUpperCase().includes(search.toUpperCase()) && region === item.region
-      );
+  function countriesShow() {
+    if (countriesData) {
+      countriesData.filter((item) => {
+        // checks if a name or region has been selected. If not reveal all countries
+        if ((search.toUpperCase() === "") & (region === "")) {
+          return item;
+        } else if (region !== "") {
+          return (
+            // compares name and region and reveal the related
+            item.name.common.toUpperCase().includes(search.toUpperCase()) && region === item.region
+          );
+        } else {
+          // compares only name and reveals related
+          return item.name.common.toUpperCase().includes(search.toUpperCase());
+        }
+      });
     } else {
-      // compares only name and reveals related
-      return item.name.common.toUpperCase().includes(search.toUpperCase());
+      return ["No Data"];
     }
-  });
+  }
+
+  // if (!countriesData) {
+  //   return <div>Loading</div>;
+  // }
+
   return (
     <section className="countries">
       <nav className="countries_nav">
@@ -83,8 +94,8 @@ export default function Countries({ countriesData }) {
       {/* container for countries */}
       <article className="countries_container">
         {/* loops trough all countries to display and creates elements for them */}
-        {countriesShow &&
-          countriesShow.map((countryData) => {
+        {countriesData ? (
+          countriesShow().map((countryData) => {
             return (
               <HashLink to={countryData.cca3}>
                 <div className="countries_container_country">
@@ -112,7 +123,10 @@ export default function Countries({ countriesData }) {
                 </div>
               </HashLink>
             );
-          })}
+          })
+        ) : (
+          <div>No data</div>
+        )}
       </article>
     </section>
   );

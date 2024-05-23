@@ -19,7 +19,7 @@ function Dashboard() {
 
 export default function App() {
   // useStates
-  const [countriesData, setCountriesData] = useState([""]);
+  const [countriesData, setCountriesData] = useState();
 
   // UseEffect for api call, to prevent infinite api due to setCountries in apiCall function
   useEffect(() => {
