@@ -10,7 +10,7 @@ async function countriesApiCall() {
 
     // Gives error message in console when there is an error
   } catch (error) {
-    console.error(`Could not retrieve weather data: ${error}`);
+    console.error(`Could not retrieve country data: ${error}`);
   }
 }
 export { countriesApiCall };
