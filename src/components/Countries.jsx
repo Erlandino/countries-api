@@ -12,7 +12,7 @@ export default function Countries({ countriesData }) {
   // compares countries name to input value and countries regions to region selected to decide what to display
   function countriesShow() {
     if (countriesData) {
-      countriesData.filter((item) => {
+      return countriesData.filter((item) => {
         // checks if a name or region has been selected. If not reveal all countries
         if ((search.toUpperCase() === "") & (region === "")) {
           return item;
@@ -31,6 +31,7 @@ export default function Countries({ countriesData }) {
     }
   }
 
+  console.log(countriesShow());
   // if (!countriesData) {
   //   return <div>Loading</div>;
   // }

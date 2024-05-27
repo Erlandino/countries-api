@@ -6,6 +6,7 @@ async function countriesApiCall() {
 
     // Handles the data received from api call and stores it in countries state
     const data = await res.json();
+
     return data;
 
     // Gives error message in console when there is an error
