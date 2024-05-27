@@ -24,13 +24,12 @@ body {
   background-color: white;
   box-shadow: 0px 1px 8px rgb(170, 170, 170);
 }
-.dark-mode {
-  display: none;
-}
-.light-mode {
+.app_header_dark-light-mode_container_button {
   display: flex;
   align-items: center;
   gap: 10px;
+  border: none;
+  cursor: pointer;
 }
 .countries {
   padding: 40px;
