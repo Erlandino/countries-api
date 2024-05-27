@@ -12,7 +12,7 @@ import { countriesApiCall } from "./components/api";
 function Dashboard({ toggleBackgroundColor, isBlack }) {
   return (
     <div className="app_container">
-      <Header toggleBackgroundColor={(toggleBackgroundColor, isBlack)} />
+      <Header toggleBackgroundColor={toggleBackgroundColor} isBlack={isBlack} />
       <Outlet />
     </div>
   );
