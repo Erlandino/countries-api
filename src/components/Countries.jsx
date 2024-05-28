@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { HashLink } from "react-router-hash-link";
 
-export default function Countries({ countriesData }) {
+export default function Countries({ countriesData, isBlack }) {
   // usestates
   const [search, setSearch] = useState("");
   const [region, setRegion] = useState("");
@@ -37,10 +37,16 @@ export default function Countries({ countriesData }) {
   // }
 
   return (
-    <section className="countries">
+    <section
+      className="countries"
+      style={{ backgroundColor: isBlack ? "hsl(200, 15%, 8%);" : "hsl(207, 26%, 17%)" }}
+    >
       <nav className="countries_nav">
         {/* search bar for countries */}
-        <div className="countries_nav_searchBarContainer">
+        <div
+          className="countries_nav_searchBarContainer"
+          style={{ backgroundColor: isBlack ? "white" : "hsl(209, 23%, 22%)" }}
+        >
           <FontAwesomeIcon
             className="countries_nav_searchBarContainer_searchIcon"
             icon={faMagnifyingGlass}
@@ -50,6 +56,7 @@ export default function Countries({ countriesData }) {
             type="text"
             placeholder="Search for a country..."
             onChange={(e) => setSearch(e.target.value)}
+            style={{ backgroundColor: isBlack ? "white" : "hsl(209, 23%, 22%)" }}
           />
         </div>
         {/* Allows the user to select a region to filter the countries by */}
