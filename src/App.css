@@ -34,6 +34,17 @@ body {
 .countries {
   padding: 40px;
 }
+.app_header_dark-light-mode_container_dark_button {
+  background-color: hsl(207, 26%, 17%);
+}
+.app_header_dark-light-mode_container_dark_button .app_header_dark-light-mode_container_button_txt {
+  color: white;
+}
+.app_header_dark-light-mode_container_dark_button
+  .app_header_dark-light-mode_container_button_icon
+  path {
+  color: white;
+}
 
 @media only screen and (max-width: 600px) {
   .app_header_title {
