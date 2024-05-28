@@ -9,7 +9,7 @@ export default function Header({ toggleBackgroundColor, isBlack }) {
   return (
     <header
       className="app_header"
-      style={{ backgroundColor: isBlack ? "white" : "hsl(207, 26%, 17%)" }}
+      style={{ backgroundColor: isBlack ? "white" : "hsl(209, 23%, 22%)" }}
     >
       <h2 className="app_header_title" style={{ color: isBlack ? "black" : "white" }}>
         Where in the world
